@@ -23,7 +23,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.BiConsumer;
 
 @Log4j2
-public class LeastFrequentlyUsedCacheService<K, V> implements CacheService<K, V> {
+public class InMemoryCacheService<K, V> implements CacheService<K, V> {
 
     private static final int DEFAULT_CAPACITY = 100_000;
 
@@ -43,10 +43,10 @@ public class LeastFrequentlyUsedCacheService<K, V> implements CacheService<K, V>
     private final RunningAverageDurationCounter putAverageDurationCounter;
     private final EvictionCounter evictionCounter;
 
-    public LeastFrequentlyUsedCacheService(int capacity,
-                              long evictionDelay,
-                              TimeUnit evictionDelayUnit,
-                              BiConsumer<K, V> evictionListener) {
+    public InMemoryCacheService(int capacity,
+                                long evictionDelay,
+                                TimeUnit evictionDelayUnit,
+                                BiConsumer<K, V> evictionListener) {
         this.capacity = (capacity > 0) ? capacity : DEFAULT_CAPACITY;
         this.removeListener = evictionListener;
 

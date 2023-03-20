@@ -4,11 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.util.concurrent.TimeUnit;
 
-public class SimpleCacheServiceTest extends CacheServiceTest {
+public class InMemoryCacheServiceTest extends CacheServiceTest {
 
     @BeforeEach
     void setUp() {
-        uut = new SimpleCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
+        uut = new InMemoryCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
     }
 
 }

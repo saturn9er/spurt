@@ -1,4 +1,4 @@
-package com.satur9er.jmp.cache.statictics;
+package com.satur9er.spurt.cache.statictics;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

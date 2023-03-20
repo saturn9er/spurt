@@ -1,8 +1,8 @@
-package com.satur9er.jmp.cache.impl.guava;
+package com.satur9er.spurt.cache.impl.guava;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.satur9er.jmp.cache.api.JmpCacheService;
+import com.satur9er.spurt.cache.api.CacheService;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.concurrent.ExecutionException;
@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 
 @Log4j2
-public class GuavaJmpCacheService<K, V> implements JmpCacheService<K, V> {
+public class GuavaCacheService<K, V> implements CacheService<K, V> {
 
     private final Cache<K, V> cache;
 
-    public GuavaJmpCacheService(int capacity,
-                                long evictionDelay,
-                                TimeUnit evictionDelayUnit,
-                                BiConsumer<K, V> evictionListener) {
+    public GuavaCacheService(int capacity,
+                             long evictionDelay,
+                             TimeUnit evictionDelayUnit,
+                             BiConsumer<K, V> evictionListener) {
         cache = CacheBuilder.newBuilder()
                 .maximumSize(capacity)
                 .expireAfterAccess(evictionDelay, evictionDelayUnit)

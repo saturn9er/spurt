@@ -1,4 +1,4 @@
-package com.satur9er.jmp.cache.statictics;
+package com.satur9er.spurt.cache.statictics;
 
 import lombok.extern.log4j.Log4j2;
 

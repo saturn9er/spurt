@@ -1,16 +1,15 @@
-package com.satur9er.jmp.cache.impl.guava;
+package com.satur9er.spurt.cache.impl.guava;
 
-import com.satur9er.jmp.cache.impl.JmpCacheServiceTest;
-import com.satur9er.jmp.cache.impl.guava.GuavaJmpCacheService;
+import com.satur9er.spurt.cache.impl.CacheServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.concurrent.TimeUnit;
 
-public class GuavaJmpCacheServiceTest extends JmpCacheServiceTest {
+public class GuavaCacheServiceTest extends CacheServiceTest {
 
     @BeforeEach
     void setUp() {
-        uut = new GuavaJmpCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
+        uut = new GuavaCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
     }
 
 }

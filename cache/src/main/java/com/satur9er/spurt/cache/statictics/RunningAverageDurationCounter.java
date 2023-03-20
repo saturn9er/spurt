@@ -1,4 +1,4 @@
-package com.satur9er.jmp.cache.statictics;
+package com.satur9er.spurt.cache.statictics;
 
 import java.util.concurrent.atomic.AtomicLong;
 

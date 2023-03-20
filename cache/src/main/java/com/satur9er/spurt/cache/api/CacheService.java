@@ -1,6 +1,9 @@
-package com.satur9er.jmp.cache.api;
+package com.satur9er.spurt.cache.api;
 
-public interface JmpCacheService<K, V> {
+public interface CacheService<K, V> {
+
     V get(K key);
+
     void put(K key, V value);
+
 }

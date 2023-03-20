@@ -1,7 +1,6 @@
-package com.satur9er.jmp.cache.impl;
+package com.satur9er.spurt.cache.impl;
 
-import com.satur9er.jmp.cache.api.JmpCacheService;
-import com.satur9er.jmp.cache.impl.SimpleJmpCacheService;
+import com.satur9er.spurt.cache.api.CacheService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -14,18 +13,18 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public abstract class JmpCacheServiceTest {
+public abstract class CacheServiceTest {
 
     protected static final int CAPACITY = 3;
     protected static final long EVICTION_DELAY = 100;
 
     protected static final int WAIT_COEFFICIENT = 3;
 
-    protected JmpCacheService<String, String> uut;
+    protected CacheService<String, String> uut;
 
     @BeforeEach
     void setUp() {
-        uut = new SimpleJmpCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
+        uut = new InMemoryCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
         //uut = new GuavaJmpCacheService<>(CAPACITY, EVICTION_DELAY, TimeUnit.MILLISECONDS, (k, v) -> {});
     }
 
@@ -50,7 +49,7 @@ public abstract class JmpCacheServiceTest {
         @BeforeEach
         void setUp() {
             mutableList = new ArrayList<>();
-            uut = new SimpleJmpCacheService<>(
+            uut = new InMemoryCacheService<>(
                     1,
                     1, TimeUnit.MILLISECONDS,
                     (k, v) -> mutableList.add(k)
